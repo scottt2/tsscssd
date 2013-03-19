@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+
+require 'tsscssd'
+require 'optparse'
+
+options   = { :report => true }
+op        = OptionParser.new
+
+op.on("-h", "--help") do
+  puts op.to_s
+  exit
+end
+
+op.on("-v", "--version") do
+  puts Tsscssd::VERSION
+  exit
+end
+
+appname_help            = "What the hell shall we call this App?"
+stylesheets_help        = "Tell me where your delicious stylesheets are."
+type_help               = "Tell me how these stylesheets are written. CSS? SASS? SCSS?"
+output_help             = "Tell me where to lay down the fat stacks of documentation."
+skip_help               = "Give the filename you want to skip. JUST THE NAME...like 'normalize.'"
+
+op.on("--appname     [STRING]",      appname_help) {|value| options[:appname] = value }
+op.on("--stylesheets [PATH]",        stylesheets_help) {|value| options[:stylesheets] = value }
+op.on("--type        [STRING]",      type_help) {|value| options[:type] = value }
+op.on("--output      [PATH]",        output_help) {|value| options[:output] = value }
+op.on("--skip        [STRING]",      skip_help) {|value| options[:skip] = value }
+
+begin
+  op.parse!(ARGV)
+  raise "Hey man...you need to pass me some paraemeter if you want this done correctly." if ARGV.empty?
+  Tsscssd.run!(ARGV[0], options)
+rescue Exception => ex
+  puts ex.message
+  exit
+end

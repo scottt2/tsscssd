@@ -1,0 +1,38 @@
+/*
+* Name         - Test
+* Authors      - <a href="mailto:tyler@bluekai.com">Tyler Scott</a>
+* Description  - This file contains a bunch of test SCSS.
+*/
+
+@import 'a-file';
+@import 'another-file';
+
+// Bacon ipsum dolor sit amet prosciutto shoulder bresaola, sirloin beef short ribs salami cow ham biltong.
+$test: 50px;
+
+// Pork hamburger strip steak short ribs frankfurter.
+$test1: 14em;
+
+// Pastrami tongue tenderloin flank ham pork belly pig chicken sausage.
+$test2: 35px;
+
+// Boudin ham pork hamburger, turducken frankfurter jowl.
+$test3: 1.4;
+$test4: 10px;
+
+// Ribeye meatloaf tail rump turducken sirloin leberkas capicola.
+$test5: .8125em;
+
+// Swine beef shank, meatloaf drumstick leberkas jowl meatball t-bone turkey biltong.
+$test6: 10000;
+
+// Sets the base fill class as per <a href="http://blog.stevensanderson.com/2011/10/05/full-height-app-layouts-a-css-trick-to-make-it-easier/" target="_blank">Steven Sanderson's Method</a>.
+.row, .col { overflow: hidden; position: absolute; }
+// Paints the element to 100% screen width.
+.row { left: 0; right: 0; }
+// Paints the element to 100% screen height.
+.col { top: 0; bottom: 0; }
+// Enables scrolling on the x-axis for the element.
+.scroll-x { overflow-x: auto; }
+// Enables scrolling on the y-axis for the element.
+.scroll-y { overflow-y: auto; }
